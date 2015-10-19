@@ -1,18 +1,16 @@
 ﻿#pragma strict
-private var time : float;
-// 5秒後speed up(任意の値に変更でして下さい)
-private var speedUptime : float = 5; 
 
-var Speed = 20.0;
-function Start () {
-	var rb = GetComponent.<Rigidbody>();
-	rb.AddForce((transform.forward + transform.right) * Speed, ForceMode.VelocityChange);
+var Speed = 20;
+var count = 0;
+
+function Start(){
+	GetComponent.<Rigidbody>().AddForce( ( transform.forward + transform.right ) * Speed, ForceMode.VelocityChange );
 }
 
-function Update () {
-	time += Time.deltaTime;
-	if( time >= speedUptime ){
-		Speed = 30.0;
-		Start();
+function Update(){
+	Debug.Log(Time.time);
+	if (Time.time > 5 && count < 1){
+		GetComponent.<Rigidbody>().velocity = GetComponent.<Rigidbody>().velocity * 1.5f;
+		count++;
 	}
-}
+} 

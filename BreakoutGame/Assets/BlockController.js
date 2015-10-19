@@ -1,13 +1,9 @@
 ﻿#pragma strict
-
-function Start () {
-
-}
-
-function Update () {
-
-}
+var hp :int = 2;
 
 function OnCollisionEnter(collision: Collision) {
-	Destroy(gameObject);
+	hp--;
+    if (hp == 0){
+        Destroy(gameObject);
+    }
 }
