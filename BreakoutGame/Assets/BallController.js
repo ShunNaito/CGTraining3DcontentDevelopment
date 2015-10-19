@@ -1,4 +1,7 @@
 ﻿#pragma strict
+private var time : float;
+// 5秒後speed up(任意の値に変更でして下さい)
+private var speedUptime : float = 5; 
 
 var Speed = 20.0;
 function Start () {
@@ -7,5 +10,9 @@ function Start () {
 }
 
 function Update () {
-
+	time += Time.deltaTime;
+	if( time >= speedUptime ){
+		Speed = 30.0;
+		Start();
+	}
 }
